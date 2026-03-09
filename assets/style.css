@@ -1,0 +1,143 @@
+/* styles.css */
+/* Modern Fintech Dark Mode Theme */
+
+:root {
+    --background: #0e1117;
+    --panel: #1a1c24;
+    --text-main: #f0f2f6;
+    --text-muted: #8c92a1;
+    --neon-blue: #00f2fe;
+    --neon-purple: #4facfe;
+    --neon-green: #00ff87;
+    --neon-red: #ff3366;
+    --accent: #4facfe;
+    --border: #2d3139;
+}
+
+/* Backgrounds and text */
+.stApp {
+    background-color: var(--background);
+    color: var(--text-main);
+}
+
+.stSidebar {
+    background-color: var(--panel);
+    border-right: 1px solid var(--border);
+}
+
+[data-testid="stSidebarNav"] span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-main) !important;
+    font-family: 'Inter', sans-serif, 'Roboto';
+    font-weight: 600;
+}
+
+/* Custom Card Container using st.container */
+div[data-testid="stVerticalBlock"]>div[style*="flex-direction: column;"]>div[data-testid="stVerticalBlock"] {
+    background-color: var(--panel) !important;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+/* Metric styling */
+[data-testid="stMetricValue"] {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    background: -webkit-linear-gradient(left, var(--neon-blue), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--text-muted) !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);
+}
+
+/* Inputs */
+.stTextInput>div>div>input,
+.stNumberInput>div>div>input,
+.stSelectbox>div>div>select {
+    background-color: var(--background) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px;
+}
+
+.stTextInput>div>div>input:focus,
+.stNumberInput>div>div>input:focus,
+.stSelectbox>div>div>select:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 1px var(--accent) !important;
+}
+
+/* Chat Messages */
+.stChatMessage {
+    background-color: var(--panel);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border);
+}
+
+[data-testid="chatAvatarIcon-user"] {
+    background-color: var(--neon-purple);
+}
+
+[data-testid="chatAvatarIcon-assistant"] {
+    background-color: var(--neon-green);
+}
+
+/* File Uploader */
+[data-testid="stFileUploadDropzone"] {
+    background-color: var(--panel);
+    border: 2px dashed var(--accent);
+    border-radius: 12px;
+}
+
+[data-testid="stFileUploadDropzone"]:hover {
+    background-color: rgba(79, 172, 254, 0.05);
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    background-color: var(--panel);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+.streamlit-expanderContent {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+}
