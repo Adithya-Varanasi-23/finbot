@@ -43,7 +43,7 @@ if prompt := st.chat_input("E.g., How should I split my salary?"):
             # Call Gemini
             response = generate_chat_response(st.session_state.messages)
             
-        message_placeholder.markdown(response)
+        message_placeholder.markdown(response, unsafe_allow_html=True)
         
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})

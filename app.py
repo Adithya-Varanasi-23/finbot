@@ -34,7 +34,19 @@ with st.sidebar:
     st.warning("⚠️ Disclamer: The AI advice provided in this app is for informational purposes only. Consult a certified financial planner for professional decisions.")
 
 # Initialization check
-if 'GEMINI_API_KEY' not in os.environ and 'GEMINI_API_KEY' not in st.secrets:
+api_key_found = False
+if 'GEMINI_API_KEY' in os.environ:
+    api_key_found = True
+else:
+    try:
+        if 'GEMINI_API_KEY' in st.secrets:
+            api_key_found = True
+    except FileNotFoundError:
+        pass
+    except Exception:
+        pass
+
+if not api_key_found:
     st.sidebar.error("⚠️ GEMINI_API_KEY not found. Please configure it in .env or secrets to use AI features.")
 
 # Main window Intro

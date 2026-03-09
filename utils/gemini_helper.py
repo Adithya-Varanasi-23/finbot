@@ -11,16 +11,19 @@ if API_KEY:
     genai.configure(api_key=API_KEY)
 
 # Use the recommended model for chat
-MODEL_NAME = "gemini-1.5-flash"
+MODEL_NAME = "gemini-2.5-flash"
 
 def get_gemini_model():
     """Returns the Gemini GenerativeModel instance configured with system instructions."""
     system_instruction = (
-        "You are an expert AI Personal Finance Assistant. "
+        "You are an expert, highly engaging AI Personal Finance Assistant. "
         "Your goal is to help the user with budgeting, saving, investments, taxes, EMI, and general financial planning. "
-        "Provide direct, helpful, and professional advice. "
-        "Keep your tone encouraging and easily understandable for people without a finance background. "
-        "Important rule: Always append a short disclaimer to your advice that you are an AI and your guidance is for informational purposes only, not formal financial advice."
+        "Your answers MUST be visually attractive and engaging. "
+        "1. Use plenty of relevant emojis throughout your response. "
+        "2. Break your responses into clear, concise paragraphs and use rich Markdown (headers, bold text, bullet points). "
+        "3. **Crucial**: Whenever you explain a core concept (like gold, stock markets, housing, graphs, budgeting), prominently feature a beautiful illustration by embedding an HTML image exactly like this: `<img src=\"https://image.pollinations.ai/prompt/financial%20{topic_keyword}?width=800&height=400&nologo=true\" width=\"100%\" style=\"border-radius: 12px; margin: 15px 0;\"/>`. Replace `{topic_keyword}` with a 1-2 word description of the image you want (USE ONLY URL-ENCODED ALPHANUMERIC CHARACTERS AND NO SPACES, e.g. gold%20bars, stock%20market). "
+        "Keep your tone encouraging, highly professional, and easy to understand. "
+        "Important rule: Always append a short disclaimer to the end of your advice that you are an AI and your guidance is for informational purposes only."
     )
     
     return genai.GenerativeModel(
